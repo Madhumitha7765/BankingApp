@@ -3,13 +3,15 @@ import { Sidebar } from './Sidebar';
 import { MainClientContent } from './MainClientContent';
 import { findAccount } from './Utils';
 import { TransferPage } from './TransferPage';
-import { BudgetApp } from './BudgetApp';
+// import { BudgetApp } from './BudgetApp';
+import { TransactPage } from "./TransactPage";
+
 
 export const ClientDashboard = (props) => {
     const { logout, client, setClient } = props;
     const [users, setUsers] = useState(props.users);
     const [ page, setPage ] = useState('home');
-
+    const [notif, setNotif] = useState({message: '', style: ''});
   
     const changePageHandler = (pageName) => {
       setPage(pageName);
@@ -27,16 +29,46 @@ export const ClientDashboard = (props) => {
       )
     }
   
-    if(page === 'budget') {
+    
+  
+    if(page === 'transfer') {
       return (
         <main>
           <Sidebar changePage={changePageHandler} page={page} user={client} logoutHandler={props.logout} />
-          <BudgetApp client={client} />
+          <TransferPage isClient="true" client={client} setClient={setClient} users={users} setUsers={setUsers}  />
         </main>
       )
     }
-  
-    if(page === 'transfer') {
+
+    if(page === 'withdraw') {
+      return (
+        <main>
+          <Sidebar changePage={changePageHandler} page={page} user={client} logoutHandler={props.logout} />
+          <TransactPage users={users} setUsers={setUsers} notif={notif} setNotif={setNotif} type="subtract" page={page} />
+        </main>
+      )
+    }
+
+    if(page === 'deposit') {
+      return (
+        <main>
+          <Sidebar changePage={changePageHandler} page={page} user={client} logoutHandler={props.logout} />
+          <TransactPage users={users} setUsers={setUsers} notif={notif} setNotif={setNotif} type="add" page={page} />
+        </main>
+      )
+    }
+
+    if(page === 'applyloan') {
+      return (
+        <main>
+          <Sidebar changePage={changePageHandler} page={page} user={client} logoutHandler={props.logout} />
+          <TransferPage isClient="true" client={client} setClient={setClient} users={users} setUsers={setUsers}  />
+          <Test></Test>
+        </main>
+      )
+    }
+
+    if(page === 'payinstallment') {
       return (
         <main>
           <Sidebar changePage={changePageHandler} page={page} user={client} logoutHandler={props.logout} />
