@@ -29,8 +29,11 @@ export const ClientMenu = (props) => {
     return (
         <ul>
             <SideLink onClickHandler={changePage} active={page} page="home" icon="bx bx-home" text="Home" />
-            <SideLink onClickHandler={changePage} active={page} page="budget" icon="bx bx-money" text="Budget App" />
             <SideLink onClickHandler={changePage} active={page} page="transfer" icon="bx bx-transfer" text="Fund Transfer" />
+            <SideLink onClickHandler={changePage} active={page} page="deposit" icon="bx bx-money" text="Deposit" />
+            <SideLink onClickHandler={changePage} active={page} page="withdraw" icon="bx bx-log-out-circle" text="Withdraw" />
+            <SideLink onClickHandler={changePage} active={page} page="applyloan" icon="bx bx-money" text="Apply Loan" />
+            <SideLink onClickHandler={changePage} active={page} page="payinstallment" icon="bx bx-log-out-circle" text="Pay Installment" />
             <SideLink onClickHandler={logoutHandler} active={page} icon="bx bx-log-out" text="Logout" />
         </ul>
     )

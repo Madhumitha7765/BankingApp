@@ -59,14 +59,6 @@ export function capitalize(str)
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export function saveBudgetToDB(accountNumber, newBudget) 
-{
-    const user = findAccount(accountNumber);
-    user.budget = newBudget;
-    const filteredUsers = addUserToUsers(user);
-    localStorage.setItem('users', JSON.stringify(filteredUsers));
-}
-
 
 
 function addUserToUsers(user) {

@@ -58,7 +58,7 @@ export const Dashboard = (props) => {
     }, [isUpdate]);
 
     let modal = null;
-    if(editingUser !== null && editModal) {
+    if(editingUser !== null && editModal) { 
         const user = users[editingUser];
         // accountName={} accountNumber={} balance={}
         modal = <AccountEditModal 
