@@ -14,8 +14,7 @@ export const Authenticate = () => {
     const localUsers = localStorage.getItem('users');
     const token = localStorage.getItem('Access Token');
     const decodedToken = jwt_decode(token);
-
-  
+    
     
     if(!localUsers) {
       localStorage.setItem('users', JSON.stringify(DATA));
@@ -25,24 +24,37 @@ export const Authenticate = () => {
 
     const isLoginSuccess = (email, password) => {
       let isFound = false;
-
-
-
-      clients.forEach(user => {
-        if(user.email === email && user.password === password) {
-          if(user.isAdmin) {
-            setIsAdmin(true);
-            setClient(user);
-            isFound = true;
-          }
-          else {
-            setIsAdmin(false);
-            setClient(user)
-            isFound = true;
-          }
-          setNotif('');
+      let isUserExist = decodedToken.user_id;
+      console.log(decodedToken)
+      if(isUserExist){
+        if(decodedToken.customer_id){
+          // get client details from axios get
+          //setClient()
         }
-      });
+        if(decodedToken.employee_id){
+          // get employee details
+        }
+      }
+      
+
+      
+
+
+      // clients.forEach(user => {
+      //   if(user.email === email && user.password === password) {
+      //     if(user.isAdmin) {
+      //       setIsAdmin(true);
+      //       setClient(user);
+      //       isFound = true;
+      //     }
+      //     else {
+      //       setIsAdmin(false);
+      //       setClient(user)
+      //       isFound = true;
+      //     }
+      //     setNotif('');
+      //   }
+      // });
   
       if(!isFound) setNotif({message: 'Wrong username and password.', style: 'danger'});
       return isFound;
