@@ -3,9 +3,10 @@ import { Sidebar } from './Sidebar';
 import { MainClientContent } from './MainClientContent';
 import { findAccount } from './Utils';
 import { TransferPage } from './TransferPage';
-// import { BudgetApp } from './BudgetApp';
+//  import { BudgetApp } from './BudgetApp';
 import { TransactPage } from "./TransactPage";
-
+import { ApplyLoan } from "./ApplyLoan";
+import { PayInstallment } from "./PayInstallment";
 
 export const ClientDashboard = (props) => {
     const { logout, client, setClient } = props;
@@ -62,8 +63,8 @@ export const ClientDashboard = (props) => {
       return (
         <main>
           <Sidebar changePage={changePageHandler} page={page} user={client} logoutHandler={props.logout} />
-          <TransferPage isClient="true" client={client} setClient={setClient} users={users} setUsers={setUsers}  />
-          <Test></Test>
+          <ApplyLoan isClient="true" setUsers={setUsers} notif={notif} setNotif={setNotif} type="add" page={page}  />
+          {/* <Test></Test> */}
         </main>
       )
     }
@@ -72,7 +73,7 @@ export const ClientDashboard = (props) => {
       return (
         <main>
           <Sidebar changePage={changePageHandler} page={page} user={client} logoutHandler={props.logout} />
-          <TransferPage isClient="true" client={client} setClient={setClient} users={users} setUsers={setUsers}  />
+          <PayInstallment isClient="true" setUsers={setUsers} notif={notif} setNotif={setNotif} type="add" page={page}  />
         </main>
       )
     }

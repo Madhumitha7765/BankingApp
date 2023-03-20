@@ -3,6 +3,8 @@ import DATA from '../data';
 import { Dashboard } from './Dashboard';
 import { LoginPage } from './LoginPage';
 import { ClientDashboard } from './ClientDashboard';
+import Axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 export const Authenticate = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -10,6 +12,10 @@ export const Authenticate = () => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [client, setClient] = useState(null);
     const localUsers = localStorage.getItem('users');
+    const token = localStorage.getItem('Access Token');
+    const decodedToken = jwt_decode(token);
+
+  
     
     if(!localUsers) {
       localStorage.setItem('users', JSON.stringify(DATA));
@@ -19,6 +25,8 @@ export const Authenticate = () => {
 
     const isLoginSuccess = (email, password) => {
       let isFound = false;
+
+
 
       clients.forEach(user => {
         if(user.email === email && user.password === password) {
@@ -40,9 +48,12 @@ export const Authenticate = () => {
       return isFound;
     }
   
-    const login = (username, password) => {
+    const login = async(username, password)  => {
+
         if(isLoginSuccess(username, password)) {
-            setIsLoggedIn(true);
+            setIsLoggedIn(true);          
+          
+            
         }
     }
   

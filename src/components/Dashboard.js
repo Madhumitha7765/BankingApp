@@ -4,6 +4,7 @@ import { MainContent } from "./MainContent";
 import { CreateAccountPage } from "./CreateAccountPage";
 import { TransferPage } from "./TransferPage";
 import { TransactPage } from "./TransactPage";
+import { LoanApproval } from "./LoanApproval";
 
 export const Dashboard = (props) => {
     const [page, setPage] = useState('home');
@@ -65,7 +66,7 @@ export const Dashboard = (props) => {
             accountName={user.fullname} 
             accountNumber={user.number} 
             balance={user.balance} setEditModal={setEditModal} 
-            setIsUpdate={setIsUpdate} setNewAccount={setNewAccount} setIsUpdate={setIsUpdate}  />
+            setIsUpdate={setIsUpdate} setNewAccount={setNewAccount} />
     }
 
     if(page === 'home') {
@@ -112,6 +113,15 @@ export const Dashboard = (props) => {
             <main>
                 <Sidebar changePage={changePageHandler} page={page} logoutHandler={props.logoutHandler} />
                 <TransactPage users={users} setUsers={setUsers} notif={notif} setNotif={setNotif} type="subtract" page={page} />
+            </main>
+        )
+    }
+
+    if(page === 'loanapproval') {
+        return (
+            <main>
+                <Sidebar changePage={changePageHandler} page={page} logoutHandler={props.logoutHandler} />
+                <LoanApproval users={users} setUsers={setUsers} notif={notif} setNotif={setNotif} type="subtract" page={page} />
             </main>
         )
     }

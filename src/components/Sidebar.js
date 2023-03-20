@@ -32,8 +32,8 @@ export const ClientMenu = (props) => {
             <SideLink onClickHandler={changePage} active={page} page="transfer" icon="bx bx-transfer" text="Fund Transfer" />
             <SideLink onClickHandler={changePage} active={page} page="deposit" icon="bx bx-money" text="Deposit" />
             <SideLink onClickHandler={changePage} active={page} page="withdraw" icon="bx bx-log-out-circle" text="Withdraw" />
-            <SideLink onClickHandler={changePage} active={page} page="applyloan" icon="bx bx-money" text="Apply Loan" />
-            <SideLink onClickHandler={changePage} active={page} page="payinstallment" icon="bx bx-log-out-circle" text="Pay Installment" />
+            <SideLink onClickHandler={changePage} active={page} page="applyloan" icon="bx bx-credit-card" text="Apply Loan" />
+            <SideLink onClickHandler={changePage} active={page} page="payinstallment" icon="bx bx-select-multiple" text="Pay Installment" />
             <SideLink onClickHandler={logoutHandler} active={page} icon="bx bx-log-out" text="Logout" />
         </ul>
     )
@@ -48,6 +48,7 @@ export const SideMenu = (props) => {
             <SideLink onClickHandler={changePage} active={page} page="transfer" icon="bx bx-transfer" text="Fund Transfer" />
             <SideLink onClickHandler={changePage} active={page} page="deposit" icon="bx bx-money" text="Deposit" />
             <SideLink onClickHandler={changePage} active={page} page="withdraw" icon="bx bx-log-out-circle" text="Withdraw" />
+            <SideLink onClickHandler={changePage} active={page} page="loanapproval" icon="bx bx-check-square" text="Loan Approval" />
             <SideLink onClickHandler={logoutHandler} active={page} icon="bx bx-log-out" text="Logout" />
         </ul>
     )
