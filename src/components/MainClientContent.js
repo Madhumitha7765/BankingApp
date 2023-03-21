@@ -2,8 +2,10 @@ import { Account } from './Account';
 import { formatNumber } from './Utils';
 
 export const MainClientContent = props => {
+    
     const {user} = props;
-    console.log(user);
+    // const {user} = localStorage.getItem('users')[2]
+    console.log('testuser',user);
 
     const transactions = user.transactions.map((transaction, index) => {
       const className = index % 2 === 0 ? 'even' : 'odd'

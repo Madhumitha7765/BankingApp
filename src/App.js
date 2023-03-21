@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import { Authenticate } from './components/Authenticate';
+import { LoginPage } from './components/LoginPage';
 
 function App() {
-  const cors = require('cors');
   return (
     <Authenticate />
+    
   );
 }
 

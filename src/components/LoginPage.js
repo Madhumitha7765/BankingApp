@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 import { Logo } from './Logo';
 import { Notif } from './Notif';
 import axios from 'axios';
+import getCustomerDetails, { getEmployeeDetails } from '../requests/getRequests';
 
 export const LoginPage = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
-
-   
-
   
     const onSubmitHandler = async (event) => {
       event.preventDefault();
@@ -19,8 +16,8 @@ export const LoginPage = (props) => {
           password: password,
         };
         const response = await axios.post('http://localhost:5000/user/login', requestBody);
-        localStorage.setItem('Access Token',response.data)      
-      
+        localStorage.setItem('Access Token',response.data.access_token)      
+        getEmployeeDetails()
       } catch (error) {
         console.error(error);
       }
